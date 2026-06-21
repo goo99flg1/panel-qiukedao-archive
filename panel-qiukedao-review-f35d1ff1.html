@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>球客岛 · 查询与对照笔记</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', sans-serif;
+            background: linear-gradient(145deg, #fde8c8 0%, #f7d4a3 40%, #f2c68a 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1.5rem 3rem;
+            line-height: 1.7;
+            color: #2d2419;
+        }
+        .card {
+            max-width: 780px;
+            width: 100%;
+            background: rgba(255, 252, 245, 0.92);
+            backdrop-filter: blur(2px);
+            border-radius: 36px;
+            padding: 2.8rem 2.5rem;
+            box-shadow: 0 12px 28px rgba(120, 70, 20, 0.12), 0 4px 12px rgba(0,0,0,0.04);
+            transition: box-shadow 0.2s;
+        }
+        @media (max-width: 500px) {
+            .card {
+                padding: 2rem 1.5rem;
+                border-radius: 28px;
+            }
+        }
+        h1 {
+            font-size: 2.4rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.4rem;
+            color: #3f2b16;
+        }
+        .subhead {
+            font-size: 1.05rem;
+            color: #745a3a;
+            border-left: 4px solid #c6975c;
+            padding-left: 1rem;
+            margin: 0.3rem 0 1.8rem 0;
+            font-weight: 400;
+        }
+        .intro {
+            font-size: 1.06rem;
+            margin-bottom: 2rem;
+            color: #3b2c1b;
+            background: #f7efe2;
+            padding: 0.9rem 1.2rem;
+            border-radius: 20px;
+            border: 1px solid #e4d2b8;
+        }
+        .article-paragraph {
+            margin-bottom: 1.6rem;
+            font-size: 1rem;
+            text-align: justify;
+        }
+        .article-paragraph strong {
+            color: #7a562b;
+            font-weight: 600;
+        }
+        .blockquote-card {
+            background: #f3e2cb;
+            padding: 1.2rem 1.5rem;
+            border-radius: 20px;
+            margin: 1.8rem 0;
+            border-left: 8px solid #b8894e;
+            font-style: normal;
+            color: #4c3820;
+            font-weight: 400;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.02);
+        }
+        .blockquote-card p {
+            margin-bottom: 0.3rem;
+        }
+        .blockquote-card .attribution {
+            margin-top: 0.4rem;
+            font-size: 0.85rem;
+            color: #8b6f4b;
+            text-align: right;
+        }
+        .faq-mini {
+            background: #faf3e9;
+            border-radius: 24px;
+            padding: 1.3rem 1.5rem;
+            margin: 2rem 0 1.5rem;
+        }
+        .faq-item {
+            margin-bottom: 0.8rem;
+        }
+        .faq-item:last-child {
+            margin-bottom: 0;
+        }
+        .faq-q {
+            font-weight: 600;
+            color: #5f4425;
+            display: inline-block;
+            margin-right: 0.4rem;
+        }
+        .faq-a {
+            color: #3b2b19;
+        }
+        .link-sentence {
+            background: #f2e4d1;
+            padding: 0.8rem 1.2rem;
+            border-radius: 48px;
+            display: inline-block;
+            margin: 0.5rem 0 0.2rem;
+            font-size: 1rem;
+            border: 1px solid #d7bc96;
+        }
+        .link-sentence a {
+            color: #6a4e2a;
+            text-decoration: none;
+            font-weight: 600;
+            background: #fff6ea;
+            padding: 0.15rem 0.8rem;
+            border-radius: 40px;
+            border: 1px solid #dbbf98;
+            transition: background 0.15s, box-shadow 0.15s;
+            white-space: nowrap;
+        }
+        .link-sentence a:hover {
+            background: #ecd6b4;
+            box-shadow: 0 2px 6px rgba(110, 70, 20, 0.15);
+        }
+        .quiet-access {
+            margin-top: 2.2rem;
+            font-size: 0.95rem;
+            color: #7a623f;
+            border-top: 1px dashed #dac2a2;
+            padding-top: 1.6rem;
+            text-align: center;
+        }
+        .quiet-access a {
+            color: #5a3f1f;
+            text-decoration: underline wavy #cfa671 1.5px;
+            text-underline-offset: 4px;
+            font-weight: 500;
+        }
+        hr {
+            margin: 1.8rem 0 1rem;
+            border: none;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #d0b48a, transparent);
+        }
+        .tagline {
+            text-align: right;
+            font-size: 0.9rem;
+            color: #7e6340;
+            margin-top: 0.3rem;
+        }
+    </style>
+</head>
+<body>
+<div class="card">
+    <h1>球客岛 · 查询与对照</h1>
+    <div class="subhead">日常追问 · 信息参照 · 延伸阅读</div>
+
+    <div class="intro">
+        一个用于日常查询、对照检索和延伸阅读的积存空间。不追求即时推送，而是提供结构化的参照节点。
+    </div>
+
+    <p class="article-paragraph">
+        <strong>查询的起点，往往是一段模糊的表述。</strong> 
+        很多时候我们面对的不是“不知道”，而是“不确定”——一个术语的准确译文、一段政策原文的出处、一组数据的上下文。球客岛的定位，是成为这类场景下的参照锚点：把散落的信息片段收拢到可回溯的页面中，让每一次查找都有迹可循。
+    </p>
+
+    <p class="article-paragraph">
+        围绕“对照”这一动作，内容组织偏向平行比较与源流梳理。例如同一概念在不同时期、不同地区文本中的用法差异，或某类表述的演变脉络。这种对照不追求穷尽，而是提供足够清晰的样本线，帮助阅读者快速建立自己的判断框架。
+    </p>
+
+    <div class="blockquote-card">
+        <p>“信息的价值不只在获取那一刻，更在于你回头查找时，它还在原处等你。”</p>
+        <div class="attribution">—— 摘自某次阅读笔记</div>
+    </div>
+
+    <p class="article-paragraph">
+        <strong>延伸阅读，不是堆叠链接。</strong> 
+        每一条延伸线索都经过筛选：要么是原始出处，要么是高质量的二阶文献。在球客岛上，延伸阅读被设计为“可继续追问的路径”，而非终点列表。如果你顺着某条线索发现新的问题，那恰恰是它最有效的时刻。
+    </p>
+
+    <div class="faq-mini">
+        <div class="faq-item">
+            <span class="faq-q">问：</span><span class="faq-a">这里的内容更新频率如何？</span>
+        </div>
+        <div class="faq-item">
+            <span class="faq-q">答：</span><span class="faq-a">按主题整理，不定时补充。比起时效性，更关注信息的可查性与对照价值。</span>
+        </div>
+        <div class="faq-item">
+            <span class="faq-q">问：</span><span class="faq-a">能否直接引用球客岛的内容？</span>
+        </div>
+        <div class="faq-item">
+            <span class="faq-q">答：</span><span class="faq-a">可以，建议同时回溯原始来源。本岛始终扮演中转站角色。</span>
+        </div>
+    </div>
+
+    <p class="article-paragraph">
+        如果你也在寻找这样一个地方——能安静地存放查询记录、对照笔记与延伸阅读的脉络，那么不妨在需要的时候打开 <span class="link-sentence"><a href="https://panel-qiukedao.com">球客岛</a></span>，把它当作一个信息工具箱中的普通格子。不必每日造访，只需在追问时想起。
+    </p>
+
+    <hr>
+
+    <div class="quiet-access">
+        <span>日常查询 · 对照 · 延伸阅读 — </span>
+        <a href="https://panel-qiukedao.com">球客岛</a>
+        <span style="display:block; margin-top:0.3rem; font-size:0.85rem; opacity:0.7;">页面内容基于创作种子 e7340acc04df60c4 · 结构独立变化</span>
+    </div>
+    <div class="tagline">— 简洁博客式 · 信息密度适中 —</div>
+</div>
+</body>
+</html>
